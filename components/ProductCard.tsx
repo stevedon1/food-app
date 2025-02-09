@@ -1,4 +1,4 @@
-import { View, Text, Image, FlatList, StyleSheet } from "react-native";
+import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { products } from "@/libs/products"; // Ensure correct path
 
 export default function ProductCard() {
@@ -7,6 +7,7 @@ export default function ProductCard() {
       data={products}
       keyExtractor={(item) => item.name}
       renderItem={({ item }) => (
+        <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Clicked:", item.name)}>
         <View style={styles.card}>
           {/* Header - User Info */}
           <View style={styles.header}>
@@ -29,6 +30,7 @@ export default function ProductCard() {
             </View>
          </View>
         </View>
+        </TouchableOpacity>
       )}
     />
   );
