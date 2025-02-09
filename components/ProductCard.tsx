@@ -1,5 +1,6 @@
 import { View, Text, Image, FlatList, StyleSheet, TouchableOpacity } from "react-native";
 import { products } from "@/libs/products"; // Ensure correct path
+import { Link } from "expo-router";
 
 export default function ProductCard() {
   return (
@@ -7,29 +8,31 @@ export default function ProductCard() {
       data={products}
       keyExtractor={(item) => item.name}
       renderItem={({ item }) => (
-        <TouchableOpacity activeOpacity={0.7} onPress={() => console.log("Clicked:", item.name)}>
-        <View style={styles.card}>
-          {/* Header - User Info */}
-          <View style={styles.header}>
-            <Image source={item.avatar} style={styles.avatar} />
-            <Text style={styles.username}>{item.username}</Text>
-          </View>
+        <TouchableOpacity activeOpacity={0.7}>
+          <Link href={`/${item.name}`}>
+            <View style={styles.card}>
+              {/* Header - User Info */}
+              <View style={styles.header}>
+                <Image source={item.avatar} style={styles.avatar} />
+                <Text style={styles.username}>{item.username}</Text>
+              </View>
 
-          {/* Post - Product Image */}
-          <Image source={item.image} style={styles.postImage} />
+              {/* Post - Product Image */}
+              <Image source={item.image} style={styles.postImage} />
 
-            <View>
-            {/* Footer - Product Name & Price */}
-            <View style={styles.footer}>
-                <Text style={styles.productName}>{item.name}</Text>
-                <Text style={styles.price}>Ksh {item.price}</Text>
+              <View>
+                {/* Footer - Product Name & Price */}
+                <View style={styles.footer}>
+                  <Text style={styles.productName}>{item.name}</Text>
+                  <Text style={styles.price}>Ksh {item.price}</Text>
+                </View>
+                <View>
+                  <Text>Remaining: {item.units}</Text>
+                  <Text>Negotiable: {item.negotiable}</Text>
+                </View>
+              </View>
             </View>
-            <View>
-                <Text>Remaining: {item.units}</Text>
-                <Text>Remaining: {item.negotiable}</Text>
-            </View>
-         </View>
-        </View>
+          </Link>
         </TouchableOpacity>
       )}
     />
@@ -45,7 +48,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.1,
     shadowRadius: 4,
     width: "100%",
-    // paddingBottom: 10,
   },
   header: {
     flexDirection: "row",
@@ -68,8 +70,8 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   footer: {
-    flexDirection:"row",
-    justifyContent:'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
     padding: 10,
   },
   productName: {
@@ -80,6 +82,5 @@ const styles = StyleSheet.create({
   price: {
     fontSize: 16,
     fontWeight: "500",
-    // color: "gray",
   },
 });
