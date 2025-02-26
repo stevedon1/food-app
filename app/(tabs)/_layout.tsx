@@ -22,33 +22,34 @@ export default function TabLayout() {
           ios: { position: 'absolute' },
           default: {},
         }),
-      }}>
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="home" color={color} />, // Updated
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="home" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="category"
+        name="discounts"
         options={{
-          title: 'Category',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="grid" color={color} />, // Updated
+          title: 'Discounts',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="pricetags" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="message"
+        name="sell"
         options={{
-          title: 'Message',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="chatbubbles" color={color} />, // Updated
+          title: 'Sell',
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="add-circle" color={color} />,
         }}
       />
       <Tabs.Screen
         name="profile"
         options={{
           title: 'Profile',
-          tabBarIcon: ({ color }) => <Ionicons size={28} name="person-circle" color={color} />, // Updated
+          tabBarIcon: ({ color }) => <Ionicons size={28} name="person-circle" color={color} />,
         }}
       />
     </Tabs>

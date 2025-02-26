@@ -6,7 +6,7 @@ export default function HomeScreen() {
   return (
     <SafeAreaView  style={{flex:1}}>
       <ThemedView style={{ flex: 1, padding: 20 }}>
-        <ThemedText>message</ThemedText>
+        <ThemedText>sell</ThemedText>
       </ThemedView>
     </SafeAreaView>
   );
